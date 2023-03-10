@@ -1,7 +1,25 @@
 #include "CardGame.hpp"
 
 Cardgame::Cardgame(){
-    
+    for(int i = 0; i < 5; i++){
+        this->Pioche.push_back(Carte(Couleur+i, plusplus));
+        for(int j = 0; j < 5; j++){
+            this->Pioche.push_back(Carte(Couleur+i, plus));
+        }
+        for(int k = 0; k < 5; k++){
+            this->Pioche.push_back(Carte(Couleur+i, moins));
+        }
+    }
+    for(int i = 0; i < 2; i++){
+        this->Pioche.push_back(Carte(neutre, hh));
+        this->Pioche.push_back(Carte(neutre, moins));
+    }
+    for(int i = 0; i < 5; i++){
+        this->Pioche.push_back(Carte(neutre, plus));
+    }
+    for(int i = 0; i < 3; i++){
+        this->Pioche.push_back(Carte(neutre, h));
+    }
 }
 
 bool Cardgame::isEmpty(){
