@@ -2,8 +2,9 @@
 
 /* Constructor */
 
-Carte::Carte(){
-
+Carte::Carte(string couleur, string valeur){
+    this->couleur = couleur;
+    this->valeur = valeur;
 }
 
 /*----------------------------------------------------------*/
@@ -30,10 +31,11 @@ string Carte::getValeur() const{
 
 /* Setters */
 
-string Carte::setCouleur(){
-    
+string Carte::setCouleur(string couleur){
+    this->couleur = couleur;
 }
 
-string Carte::setValeur(){
 
+string Carte::setValeur(string valeur){
+    this->valeur = valeur;
 }

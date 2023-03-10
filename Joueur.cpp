@@ -85,6 +85,7 @@ int Joueur::choisirCarte()
     //return carte_choisie;
 
     cout << "Choisir carte" << endl;
+    return 0; //to be removed
 
 }
 

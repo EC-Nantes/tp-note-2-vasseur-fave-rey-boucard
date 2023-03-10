@@ -13,16 +13,22 @@
 
 using namespace std;
 
+enum Couleur {rouge, bleu, vert, jaune, violet, neutre};
+enum Valeur {plusplus, plus, moins, h, hh};
+
+
 class Carte
 {
 private:
-    string couleur;
-    string valeur;
+    string couleur; // peut être rouge, bleu, vert, jaune, violet, neutre
+    string valeur;  // Peut être ++, +, -, ↑↑, ↑
+
+
 
 public:
 
     /* Constructor */
-    Carte();
+    Carte(string couleur, string valeur);
     Carte(const Carte&);
 
     /* Methods */
@@ -34,8 +40,8 @@ public:
     string getValeur() const;
 
     /* Setters */
-    string setCouleur();
-    string setValeur();
+    string setCouleur(string couleur);
+    string setValeur(string valeur);
 
 };
 
