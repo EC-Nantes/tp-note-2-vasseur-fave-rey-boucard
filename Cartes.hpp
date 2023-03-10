@@ -10,6 +10,8 @@
 
 #include <iostream>
 #include <cstring>
+#include "Plateau.hpp"
+
 
 using namespace std;
 
@@ -19,16 +21,19 @@ enum Valeur {plusplus, plus, moins, h, hh};
 
 class Carte
 {
-private:
+protected:
+
+    //include pointer to plateau 
+    Plateau *pointeurPlateau;
+
     string couleur; // peut être rouge, bleu, vert, jaune, violet, neutre
     string valeur;  // Peut être ++, +, -, ↑↑, ↑
-
-
+    
 
 public:
 
     /* Constructor */
-    Carte(string couleur, string valeur);
+    Carte(string couleur, string valeur, Plateau *pointeurPlateau);
     Carte(const Carte&);
 
     /* Methods */
