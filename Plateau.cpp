@@ -39,6 +39,7 @@ bool Plateau::Fin(){
 }
 
 void Plateau::updatePlateau(std::string deplacement){
+    //Exemple string : "Couleur, valeur"
     
 }
 
