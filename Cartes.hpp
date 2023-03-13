@@ -10,6 +10,8 @@
 
 #include <iostream>
 #include <cstring>
+#include <sstream>
+
 #include "Plateau.hpp"
 
 
@@ -45,8 +47,8 @@ public:
     string getValeur() const;
 
     /* Setters */
-    string setCouleur(string couleur);
-    string setValeur(string valeur);
+    void setCouleur(string couleur);
+    void setValeur(string valeur);
 
 };
 
