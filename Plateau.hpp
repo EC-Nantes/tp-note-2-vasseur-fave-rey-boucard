@@ -25,7 +25,6 @@ using namespace std;
 
 class Plateau;
 
-
 std::ostream& operator<<(std::ostream &, Plateau const&);
 
 
@@ -41,7 +40,7 @@ public:
     void PlacementTortues();
     bool Fin();
     void updatePlateau(std::string deplacement);
-    bool checkLastPos(std::string couleur);
+    std::string checkLastPos();
 
     //void Afficher();
 	//friend std::ostream& operator<< (std::ostream& os, Plateau const &R);
