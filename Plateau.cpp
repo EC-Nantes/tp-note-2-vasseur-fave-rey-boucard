@@ -16,11 +16,6 @@ Plateau::Plateau(void){
         }
     }
     this->PlacementTortues();
-    //tortues[0] = Tortue("Rouge");
-    //tortues[1] = Tortue("Bleu");
-    //tortues[2] = Tortue("Vert");
-    //tortues[3] = Tortue("Jaune");
-    //tortues[4] = Tortue("Violet");
 }
 
 void Plateau::PlacementTortues(){
@@ -33,6 +28,7 @@ void Plateau::PlacementTortues(){
         this->ordre[i] = couleurs[ordre_couleurs[i]];
         this->tortues[i] = new Tortue(this->ordre[i], 1, false, i);
         this->plateau[0][i] = this->tortues[i];
+        std::cout << *this->tortues[i];
     }
     this->Nb_tortues[0] = 5;
 }
