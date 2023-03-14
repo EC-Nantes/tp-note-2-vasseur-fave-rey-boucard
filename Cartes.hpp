@@ -18,7 +18,7 @@
 using namespace std;
 
 enum Couleur {rouge, bleu, vert, jaune, violet, neutre};
-enum Valeur {plusplus, plus, moins, h, hh};
+enum Valeur {plusplus, pluss, moins, h, hh};
 
 
 class Carte
