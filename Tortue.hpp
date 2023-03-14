@@ -14,22 +14,29 @@
 
 using namespace std;
 
-
 class Tortue;
-
-
-std::ostream& operator<<(std::ostream &, Tortue const&);
-
 
 class Tortue {
 protected:
     std::string couleur;
+	int num_case;
+	bool seul;
+	int etage;
 public:
 	Tortue(void);
-	Tortue(std::string);
+	Tortue(std::string _couleur);
+	Tortue(std::string _couleur, int _case, bool _seul, int _etage);
 
-	std::string getCouleur();
-	//friend std::ostream& operator<< (std::ostream& os, Tortue const &R);
+	int getCase() const;
+	std::string getCouleur() const;
+	bool getSeul() const;
+	int getEtage() const;
+
+	void setCouleur(std::string color);
+	void setCase(int _case);
+	void setSeul(bool _seul);
+	void setEtage(int _etage);
+	friend std::ostream& operator<< (std::ostream& os, const Tortue& R);
 };
 
 
