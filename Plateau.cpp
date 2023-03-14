@@ -6,7 +6,7 @@ using namespace std;
 
 
 Plateau::Plateau(void){
-    //init des 5 tortues
+    //Init des 5 tortues
     for (int i = 0; i<10; i++){
         this->Nb_tortues[i] = 0;
     }
@@ -74,8 +74,14 @@ void Plateau::updatePlateau(std::string deplacement){
 }
 
 int Plateau::whichTortue(std::string color){
+    int index;
     auto it = find(begin(this->ordre), end(this->ordre), color);
-    int index = std::distance(this->ordre, it);
+    if (it == end(this->ordre)){
+        std::cout << "Error : Couleur choisi fausse\n";
+        index = -1;
+    }else{
+        index = std::distance(this->ordre, it);
+    }
     return index;
 }
 
@@ -89,24 +95,30 @@ int Plateau::moveSelect(std::string move){
     if (strcmp(move.c_str(), "moins")==0){
         return -1;
     }
+    std::cout << "Error : Déplacement impossible\n";
     return 0;
 }
 
 void Plateau::moveAlone(int pos, int move){
     //Déplacer la tortue d'une case
-    //récupérer nombre tortues sur la case suivante
+
+    //Récupérer nombre tortues sur la case suivante
     int num_case = this->tortues[pos]->getCase()-1;
     int etage = this->tortues[pos]->getEtage();
     int tortues_case = this->Nb_tortues[num_case + move];
-    //déplacer le pointeur
+
+    //Déplacer le pointeur
     this->plateau[num_case+move][tortues_case] = this->tortues[pos];
     this->plateau[num_case][etage] = nullptr;
-    //incrémenter le nombre de tortues sur cette nouvelle case
+
+    //Incrémenter le nombre de tortues sur cette nouvelle case
     this->Nb_tortues[num_case] -= 1;
     this->Nb_tortues[num_case+move] += 1;
-    //changer valeur de la case dans la classe Tortue
+
+    //Changer valeur de la case dans la classe Tortue
     this->tortues[pos]->setCase(num_case+move+1);
-    //changer la valeur de la variable seul de la classe Tortue si besoin
+
+    //Changer la valeur de la variable seul de la classe Tortue si besoin
     if (this->Nb_tortues[num_case+move] > 1){
         //this->tortues[pos]->setSeul(false);
         for (int i=0; i<this->Nb_tortues[num_case+move]; i++){
@@ -115,7 +127,8 @@ void Plateau::moveAlone(int pos, int move){
     }else{
         this->tortues[pos]->setSeul(true);
     }
-    //changer l'étage de la tortue
+
+    //Changer l'étage de la tortue
     this->tortues[pos]->setEtage(tortues_case);
 }
 
@@ -140,6 +153,9 @@ std::string Plateau::checkLastPos(){
     std::string LastTortues;
     while(Nb_tortues[i] ==0){
         i++;
+        if (i>9){
+            std::cout << "Error : Aucune tortue présente sur le plateau de jeu\n";
+        }
     }
     LastTortues = to_string(Nb_tortues[i]);
     for (int j=0; j<Nb_tortues[i]; j++){
