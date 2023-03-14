@@ -15,13 +15,6 @@ Carte::Carte(const Carte& carte){
 
 /*----------------------------------------------------------*/
 
-/*Function*/
-string parseString(string str, string &couleurTab){
-
-}
-
-
-
 /* Methods */
 
 string Carte::Effet(){
@@ -53,17 +46,14 @@ string Carte::Effet(){
                 for(int i=0; i<stoi(nombre); i++){
                     cout << i+1 << " : " << couleurTab[i] << endl;
                 }
-                cout << "Selectionnez la tortue de votre choix :" << endl;
-                for(int i=0; i<stoi(nombre); i++){
-                    cout << i+1 << " : " << couleurTab[i] << endl;
-                }
                 cin >> tempColor;
             }
         }
 
         else {
+            //TODO : ajouter une exception si le nombre de tortue est supérieur à 5
             cout << "Selectionnez la couleur de la tortue de votre choix, 1: rouge, 2: bleu, 3: vert, 4: jaune, 5: violet" << endl;
-            cin >> tempColor;
+            cin >> tempColor;     
             if (tempColor == "1"){
                 tempColor = "rouge";
             }
@@ -80,7 +70,6 @@ string Carte::Effet(){
                 tempColor = "violet";
             }
         }
-        return "0";
     }  
     
     //check each color and each value to do the right action
@@ -88,6 +77,9 @@ string Carte::Effet(){
 
     stringToSend = tempColor + "," + this->valeur;
     this->pointeurPlateau->updatePlateau(stringToSend);
+
+    cout << "La carte jouee est la suivante : " << stringToSend << endl;
+    return "0";
 }
 
 /*----------------------------------------------------------*/

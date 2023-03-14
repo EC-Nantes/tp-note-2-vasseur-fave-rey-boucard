@@ -23,32 +23,32 @@ enum Valeur {plusplus, plus, moins, h, hh};
 
 class Carte
 {
-protected:
+    protected:
 
-    //include pointer to plateau 
-    Plateau *pointeurPlateau;
+        //include pointer to plateau 
+        Plateau *pointeurPlateau;
 
-    string couleur; // peut être rouge, bleu, vert, jaune, violet, neutre
-    string valeur;  // Peut être ++, +, -, ↑↑, ↑
-    
+        string couleur; // peut être rouge, bleu, vert, jaune, violet, neutre
+        string valeur;  // Peut être ++, +, -, ↑↑, ↑
+        
 
-public:
+    public:
 
-    /* Constructor */
-    Carte(string couleur, string valeur, Plateau *pointeurPlateau);
-    Carte(const Carte&);
+        /* Constructor */
+        Carte(string couleur, string valeur, Plateau *pointeurPlateau);
+        Carte(const Carte&);
 
-    /* Methods */
-    string Effet();
-    //std::ostream& operator<< (std::ostream &);
+        /* Methods */
+        string Effet();
+        //std::ostream& operator<< (std::ostream &);
 
-    /* Getters */
-    string getCouleur() const;
-    string getValeur() const;
+        /* Getters */
+        string getCouleur() const;
+        string getValeur() const;
 
-    /* Setters */
-    void setCouleur(string couleur);
-    void setValeur(string valeur);
+        /* Setters */
+        void setCouleur(string couleur);
+        void setValeur(string valeur);
 
 };
 
