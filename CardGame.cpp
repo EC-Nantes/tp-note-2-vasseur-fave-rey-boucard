@@ -15,11 +15,11 @@ Cardgame::Cardgame(){
     Couleur_map[5] = "neutre";
 
 
-    Couleur_map[0] = "plusplus";
-    Couleur_map[1] = "plus";
-    Couleur_map[2] = "moins";
-    Couleur_map[3] = "h";
-    Couleur_map[4] = "hh";
+    Valeur_map[0] = "plusplus";
+    Valeur_map[1] = "plus";
+    Valeur_map[2] = "moins";
+    Valeur_map[3] = "h";
+    Valeur_map[4] = "hh";
 
     Carte card("rouge", "++", nullptr);
     
