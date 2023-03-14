@@ -25,14 +25,15 @@ using namespace std;
 
 class Plateau;
 
-std::ostream& operator<<(std::ostream &, Plateau const&);
+std::ostream& operator<<(std::ostream &, Plateau const &);
 
 
 class Plateau {
 protected:
-    Tortue tortues[5];
-    Tortue plateau[10][5];
+    Tortue* tortues[5];
+    Tortue* plateau[10][5];
     int Nb_tortues[10];
+    std::string ordre[5];
 
 public:
 	Plateau(void);
@@ -42,15 +43,17 @@ public:
     void updatePlateau(std::string deplacement);
     std::string checkLastPos();
 
-    //void Afficher();
-	//friend std::ostream& operator<< (std::ostream& os, Plateau const &R);
+    int getNbtortues(int _case) const;
+    std::string getCaseCouleur(int _case, int _etage) const;
+
+    void Afficher();
+    void moveAlone(int pos, int move);
+    void moveOthers(int pos, int move);
+    int whichTortue(std::string color);
+    int moveSelect(std::string move);
+	friend std::ostream& operator<< (std::ostream &, Plateau const &);
 };
 
 
-
-/*std::ostream& operator<<(std::ostream& os, Plateau const &Plateau){
-	os << "Affichage";
-	return os;
-}*/
 
 #endif /*PLATEAU_H*/
