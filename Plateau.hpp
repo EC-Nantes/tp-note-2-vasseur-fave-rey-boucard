@@ -25,8 +25,6 @@ using namespace std;
 
 class Plateau;
 
-std::ostream& operator<<(std::ostream &, Plateau const &);
-
 
 class Plateau {
 protected:
@@ -46,12 +44,11 @@ public:
     int getNbtortues(int _case) const;
     std::string getCaseCouleur(int _case, int _etage) const;
 
-    void Afficher();
     void moveAlone(int pos, int move);
     void moveOthers(int pos, int move);
     int whichTortue(std::string color);
     int moveSelect(std::string move);
-	friend std::ostream& operator<< (std::ostream &, Plateau const &);
+	friend std::ostream& operator<< (std::ostream& os, const Plateau& plat);
 };
 
 

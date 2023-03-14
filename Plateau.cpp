@@ -32,8 +32,7 @@ void Plateau::PlacementTortues(){
     for (int i=0; i<5; i++){
         this->ordre[i] = couleurs[ordre_couleurs[i]];
         this->tortues[i] = new Tortue(this->ordre[i], 1, false, i);
-        this->plateau[i][0] = this->tortues[i];
-        this->Nb_tortues[i] = 1;
+        this->plateau[0][i] = this->tortues[i];
     }
     this->Nb_tortues[0] = 5;
 }
@@ -153,20 +152,8 @@ std::string Plateau::checkLastPos(){
     return LastTortues;
 }
 
-void Plateau::Afficher(){
-    for (int i=0; i<10; i++){
-        std::cout << "Case " << i+1 << " : ";
-        if (this->Nb_tortues[i] != 0){
-            for (int j=0; j<this->Nb_tortues[i]; j++){
-                std::cout << this->plateau[i][j]->getCouleur() << " ";
-            }
-        }
-        std::cout << std::endl;
-    }
-}
-
-std::ostream& operator<<(std::ostream &os, Plateau const &plat){
-	/*for (int i=0; i<10; i++){
+std::ostream& operator<<(std::ostream& os, const Plateau& plat){
+	for (int i=0; i<10; i++){
         os << "Case " << i+1 << " : ";
         if (plat.getNbtortues(i) != 0){
             for (int j=0; j<plat.getNbtortues(i); j++){
@@ -174,7 +161,6 @@ std::ostream& operator<<(std::ostream &os, Plateau const &plat){
             }
         }
         os << std::endl;
-    }*/
-    os << "Affichage";
+    }
 	return os;
 }
