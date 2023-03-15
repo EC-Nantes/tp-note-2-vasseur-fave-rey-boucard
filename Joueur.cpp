@@ -1,10 +1,16 @@
 #include "Joueur.hpp"
 using namespace std;
 
-Joueur::Joueur(/*Cardgame *deck */)
+Joueur::Joueur(Cardgame *deck)
 {
     this->tuile_cachee = "A";
-    //this->deck = deck;
+    this->deck = deck;
+    //draw card from the deck
+    for (int i = 0; i < 5; i++)
+    {
+        this->main.push_back(this->deck->getTopCarte());
+    }
+
 
 }
 
@@ -29,12 +35,13 @@ void Joueur::jouer()
     //remove the card from the hand
     //draw a new card
 
-    //int carte_choisie;
+    int carte_choisie;
 
-    //carte_choisie = choisirCarte();
-    //cartes[carte_choisie]->effet();
-    //defausser(carte_choisie);
-    //piocher();
+    carte_choisie = choisirCarte();
+    cout << "Carte choisie : " << carte_choisie << endl;
+    this->main[carte_choisie].Effet();
+    defausser(carte_choisie);
+    piocher();
 
     cout << "Jouer" << endl;
 }
@@ -45,18 +52,18 @@ void Joueur::piocher()
     //check if slot is empty
     //if not, ask raise an error
 
-    //for (int i = 0; i < 5; i++)
-    //{
-    //    if (this->cartes[i] == NULL)
-    //    {
-    //        this->cartes[i] = this->deck->getPioche();
-    //        break;
-    //    }
-    //    else if (i == 4)
-    //    {
-    //        cout << "Erreur : main pleine" << endl;
-    //    }
-    //}
+    for (int i = 0; i < 5; i++)
+    {
+        if (this->main[i].getValeur() == "0")
+        {
+            this->main[i] = this->deck->getTopCarte();
+            break;
+        }
+        else if (i == 4)
+        {
+            cout << "Erreur : main pleine" << endl;
+        }
+    }
     cout << "Piocher" << endl;
 }
 
@@ -65,8 +72,10 @@ void Joueur::defausser(int carte_a_defausser)
     //add the card to the discard pile from "jeudecarte.hpp"
     //remove carte_a_defausser from the hand
 
-    //this->deck->addDefausse(this->cartes[carte_a_defausser]);
-    //this->cartes[carte_a_defausser] = NULL;
+    this->deck->addCardDefausse(this->main[carte_a_defausser]);
+
+    //remove the vector element from the hand
+    this->main.erase(this->main.begin() + carte_a_defausser);
     cout << "Defausser" << endl;
 }
 
@@ -76,16 +85,15 @@ int Joueur::choisirCarte()
     //ask user to choose a card
     //return the card
 
-    //for (int i = 0; i < 5; i++)
-    //{
-    //    cout << "Carte " << i << " : " << cartes[i] << endl;
-    //}
-    //cout << "Choisir carte : 1, 2, 3, 4, 5" << endl;
-    //cin >> carte_choisie;
-    //return carte_choisie;
+    int carte_choisie;
 
-    cout << "Choisir carte" << endl;
-    return 0; //to be removed
-
+    for (int i = 0; i < 5; i++)
+    {
+       cout << "Carte " << i << " : " << this->main[i].getValeur() << " " << this->main[i].getCouleur() << endl;
+    }
+    cout << "Choisir carte : 1, 2, 3, 4, 5" << endl;
+    cin >> carte_choisie;
+    return carte_choisie-1;
+    
 }
 

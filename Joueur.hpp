@@ -3,8 +3,9 @@
 
 #include <iostream>
 #include <string>
-//#include "Carte.hpp" to be done
-//#include "CardGame.hpp" to be done
+
+#include "Cartes.hpp" 
+#include "CardGame.hpp" 
 
 using namespace std;
 
@@ -13,16 +14,16 @@ class Joueur
     protected:
     
         //create a pointer on the deck
-        //Cardgame *deck;
-
+        Cardgame *deck;
         string tuile_cachee;
-        //Carte cartes[5]; // User have 5 card on hand
+        // User have 5 card on hand //TODO Check if it's possible to use a vector instead of an array
+        vector <Carte> main;
                 
 
 
     public:
         //constructor
-        Joueur();
+        Joueur(Cardgame *deck);
 
         //getter
         string getTuileCachee();
