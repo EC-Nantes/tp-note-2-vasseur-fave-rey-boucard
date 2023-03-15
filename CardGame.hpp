@@ -31,6 +31,7 @@ public:
     bool isEmpty();
     void Melange(string);
     Carte getTopCarte();
+    string getTuile();
     void addCardDefausse(Carte);
     void defausseToPioche();
 };
