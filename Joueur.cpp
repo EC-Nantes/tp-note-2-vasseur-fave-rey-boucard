@@ -8,9 +8,8 @@ Joueur::Joueur(Cardgame *deck)
     //draw card from the deck
     for (int i = 0; i < 5; i++)
     {
-        this->main.push_back(this->deck->getTopCarte());
-    }
-
+        this->main[i] = this->deck->getTopCarte();
+    }   
 
 }
 
@@ -56,7 +55,9 @@ void Joueur::piocher()
 
     for (int i = 0; i < 5; i++)
     {
-        if (this->main[i].getValeur() == "0")
+        //check if the card object is here
+
+        if (this->main[i].getValeur() == NULL)
         {
             this->main[i] = this->deck->getTopCarte();
             break;
@@ -77,7 +78,7 @@ void Joueur::defausser(int carte_a_defausser)
     this->deck->addCardDefausse(this->main[carte_a_defausser]);
 
     //remove the vector element from the hand
-    this->main.erase(this->main.begin() + carte_a_defausser);
+    this->main[carte_a_defausser].setValeur(NULL);
     cout << "Defausser" << endl;
 }
 

@@ -12,10 +12,12 @@ using namespace std;
 class Joueur
 {
     protected:
-        Cardgame *deck;         /* Create a pointer on the deck */
-        string tuile_cachee;    /* Colour of the turtle */
-        //TODO Check if it's possible to use a vector instead of an array
-        vector <Carte> main;    /* User have 5 card on hand */ 
+    
+        //create a pointer on the deck
+        Cardgame *deck;
+        string tuile_cachee;
+        // User have 5 card on hand //TODO Check if it's possible to use a vector instead of an array
+        Cartes main[5];
                 
     public:
         /* CONSTRUCTORS */
