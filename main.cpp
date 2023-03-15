@@ -29,8 +29,9 @@ int main()
         std::cout << plateau_jeu;
     }*/
    
-    Plateau p;
-    Cardgame c = Cardgame(&p);
+    Plateau* p = new Plateau();
+    p->getOrdre();
+    Cardgame c = Cardgame(p);
     Joueur joueur1(&c);
 
     joueur1.jouer();

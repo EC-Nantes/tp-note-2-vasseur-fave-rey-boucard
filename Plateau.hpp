@@ -17,7 +17,7 @@
 #include <random>
 #include <chrono>
 #include <memory>
-
+#include <vector>
 #include "Tortue.hpp"
 
 using namespace std;
@@ -31,7 +31,7 @@ protected:
     Tortue* tortues[5];
     Tortue* plateau[10][5];
     int Nb_tortues[10];
-    std::string ordre[5];
+    vector <std::string> ordre;
 
 public:
     /**
@@ -120,6 +120,8 @@ public:
      */
     int moveSelect(std::string move);
 	
+    void getOrdre(void);
+
     /**
      * @brief to print plateau
      * 
