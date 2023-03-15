@@ -3,7 +3,7 @@
 /**
  * @brief Construct a new Cardgame:: Cardgame object
  */
-Cardgame::Cardgame(){
+Cardgame::Cardgame(Plateau *p){
     std::map<int, std::string> Couleur_map;
     std::map<int, std::string> Valeur_map;
 
@@ -21,7 +21,7 @@ Cardgame::Cardgame(){
     Valeur_map[3] = "h";
     Valeur_map[4] = "hh";
 
-    Carte card("rouge", "++", nullptr);
+    Carte card("rouge", "++", p);
     
     /*Pour ajouter les cartes de couleur*/
     for(int i = 0; i < 5; i++){
