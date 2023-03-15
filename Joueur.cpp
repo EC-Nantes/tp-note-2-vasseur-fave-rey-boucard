@@ -27,7 +27,7 @@ void Joueur::setTuileCachee(string tuile_cachee)
 }
 
 //method
-
+//TODO Test unitaires 
 void Joueur::jouer()
 {
     //select a card by using choisirCarte()
@@ -40,7 +40,9 @@ void Joueur::jouer()
     carte_choisie = choisirCarte();
     cout << "Carte choisie : " << carte_choisie << endl;
     this->main[carte_choisie].Effet();
+    cout << "Carte jouée" << endl;
     defausser(carte_choisie);
+    cout << "Carte défaussée" << endl;
     piocher();
 
     cout << "Jouer" << endl;
@@ -89,7 +91,7 @@ int Joueur::choisirCarte()
 
     for (int i = 0; i < 5; i++)
     {
-       cout << "Carte " << i << " : " << this->main[i].getValeur() << " " << this->main[i].getCouleur() << endl;
+       cout << "Carte " << i+1 << " : " << this->main[i].getValeur() << " " << this->main[i].getCouleur() << endl;
     }
     cout << "Choisir carte : 1, 2, 3, 4, 5" << endl;
     cin >> carte_choisie;
