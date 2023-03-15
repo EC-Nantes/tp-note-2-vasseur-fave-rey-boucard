@@ -58,10 +58,10 @@ string Carte::Effet(){
             //exception si le nombre de tortue est supérieur à 5
             try {
                 if (choiceTempColor > 5) {
-                    throw runtime_error("Erreur : choix doit être inférieur ou égale à 5");
+                    throw runtime_error("Erreur : choix doit etre inferieur ou egale a 5");
                 }
                 if (cin.fail()) {
-                    throw runtime_error("Erreur : saisie non numérique");
+                    throw runtime_error("Erreur : saisie non numerique");
                 }
             } catch (runtime_error& e) {
                 std::cout << e.what() << std::endl;
