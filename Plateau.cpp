@@ -4,7 +4,10 @@
 
 using namespace std;
 
-
+/**
+ * @brief Construct a new Plateau object
+ * 
+ */
 Plateau::Plateau(void){
     //Init des 5 tortues
     for (int i = 0; i<10; i++){
@@ -18,6 +21,10 @@ Plateau::Plateau(void){
     this->PlacementTortues();
 }
 
+/**
+ * @brief place turtles in plateau
+ * 
+ */
 void Plateau::PlacementTortues(){
     std::string couleurs[5] = {"rouge", "bleu", "vert", "jaune", "violet"};
     int ordre_couleurs[5] = {0, 1, 2, 3, 4};
@@ -33,6 +40,12 @@ void Plateau::PlacementTortues(){
     this->Nb_tortues[0] = 5;
 }
 
+/**
+ * @brief check if a turtle is in end of plateau
+ * 
+ * @return true 
+ * @return false 
+ */
 bool Plateau::Fin(){
     if (Nb_tortues[9] != 0){
         return true;
@@ -40,14 +53,33 @@ bool Plateau::Fin(){
     return false;
 }
 
+/**
+ * @brief Get the Nbtortues object in one case
+ * 
+ * @param _case 
+ * @return int 
+ */
 int Plateau::getNbtortues(int _case) const{
     return this->Nb_tortues[_case];
 }
 
+/**
+ * @brief Get the color of turtle in case
+ * 
+ * @param _case 
+ * @param _etage 
+ * @return std::string 
+ */
 std::string Plateau::getCaseCouleur(int _case, int _etage) const{
     return this->plateau[_case][_etage]->getCouleur();
 }
 
+/**
+ * @brief update position of turtles in the plateau
+ * 
+ * @param deplacement
+ * @return int
+ */
 int Plateau::updatePlateau(std::string deplacement){
     int ret = 0;
     //Exemple string : "Couleur,move"
@@ -82,6 +114,12 @@ int Plateau::updatePlateau(std::string deplacement){
     return ret;
 }
 
+/**
+ * @brief which turtle in case
+ * 
+ * @param color 
+ * @return int 
+ */
 int Plateau::whichTortue(std::string color){ //TODO check for error
     int index;
     auto it = find(begin(this->ordre), end(this->ordre), color);
@@ -101,6 +139,12 @@ int Plateau::whichTortue(std::string color){ //TODO check for error
     return index;
 }
 
+/**
+ * @brief chose which turtle to move
+ * 
+ * @param move 
+ * @return int 
+ */
 int Plateau::moveSelect(std::string move){
     if (strcmp(move.c_str(), "plusplus")==0 || strcmp(move.c_str(), "hh")==0){
         return 2;
@@ -115,6 +159,13 @@ int Plateau::moveSelect(std::string move){
     return 0;
 }
 
+/**
+ * @brief move a turtle in the plateau
+ * 
+ * @param pos 
+ * @param move 
+ * @return int 
+ */
 int Plateau::moveAlone(int pos, int move){
     if (pos<0 || pos >4){
         std::cout << "Error : numéro de tortue erronné\n";
@@ -158,6 +209,13 @@ int Plateau::moveAlone(int pos, int move){
     return 0;
 }
 
+/**
+ * @brief move many turtles in the plateau
+ * 
+ * @param pos 
+ * @param move 
+ * @return int 
+ */
 int Plateau::moveOthers(int pos, int move){
     if (pos<0 || pos >4){
         std::cout << "Error : numéro de tortue erronné\n";
@@ -193,6 +251,11 @@ int Plateau::moveOthers(int pos, int move){
     return ret;
 }
 
+/**
+ * @brief check which turtle is in the last position
+ * 
+ * @return std::string 
+ */
 std::string Plateau::checkLastPos(){
     int i=0;
     std::string LastTortues;
@@ -209,6 +272,13 @@ std::string Plateau::checkLastPos(){
     return LastTortues;
 }
 
+/**
+ * @brief to print plateau
+ * 
+ * @param os 
+ * @param plat 
+ * @return std::ostream& 
+ */
 std::ostream& operator<<(std::ostream& os, const Plateau& plat){
 	for (int i=0; i<10; i++){
         os << "Case " << i+1 << " : ";
