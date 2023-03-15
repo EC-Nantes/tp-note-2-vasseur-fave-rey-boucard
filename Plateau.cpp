@@ -101,7 +101,7 @@ int Plateau::updatePlateau(std::string deplacement){
     }
 
     solo = this->tortues[pos]->getSeul();
-
+    
     moveSelected = this->moveSelect(move);
     if (moveSelected == 0){
         return -1;
@@ -123,13 +123,7 @@ int Plateau::updatePlateau(std::string deplacement){
 int Plateau::whichTortue(std::string color){ //TODO check for error
     int index;
     auto it = find(begin(this->ordre), end(this->ordre), color);
-    std::cout << "Color :" << color << std::endl;
-    std::cout << "begin :" << begin(this->ordre) << std::endl;
-    std::cout << "end :" << end(this->ordre) << std::endl;
-    std::cout << "it :" << it << std::endl;
     if (it == end(this->ordre)){
-        cout << "Couleur : " << color << endl;
-
         std::cout << "Error : Couleur choisie fausse\n";
         index = -1;
     }else{
@@ -171,8 +165,8 @@ int Plateau::moveAlone(int pos, int move){
         std::cout << "Error : numéro de tortue erronné\n";
         return -1;
     }
-    if (move != -1 || move != 1 || move != 2){
-        std::cout << "Error : déplacement impossible\n";
+    if (move != -1 && move != 1 && move != 2){
+        std::cout << "Error moveAlone: déplacement impossible\n";
         return -1;
     }
     
@@ -221,8 +215,8 @@ int Plateau::moveOthers(int pos, int move){
         std::cout << "Error : numéro de tortue erronné\n";
         return -1;
     }
-    if (move != -1 || move != 1 || move != 2){
-        std::cout << "Error : déplacement impossible\n";
+    if (move != -1 && move != 1 && move != 2){
+        std::cout << "Error moveOthers: déplacement impossible\n";
         return -1;
     }
     int ret = 0;
