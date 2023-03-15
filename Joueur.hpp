@@ -1,5 +1,5 @@
-#ifndef Joueur_hpp
-#define Joueur_hpp
+#ifndef _JOUEUR_HPP_
+#define _JOUEUR_HPP_
 
 #include <iostream>
 #include <string>
@@ -65,4 +65,4 @@ class Joueur
 };
 
 
-#endif /* Joueur_hpp */
+#endif /* _JOUEUR_HPP_ */
