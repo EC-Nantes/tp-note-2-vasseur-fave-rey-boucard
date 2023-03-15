@@ -51,22 +51,36 @@ string Carte::Effet(){
         }
 
         else {
-            //TODO : ajouter une exception si le nombre de tortue est supérieur à 5
             cout << "Selectionnez la couleur de la tortue de votre choix, 1: rouge, 2: bleu, 3: vert, 4: jaune, 5: violet" << endl;
-            cin >> tempColor;     
-            if (tempColor == "1"){
+            int choiceTempColor;
+            cin >> choiceTempColor;     
+
+            //exception si le nombre de tortue est supérieur à 5
+            try {
+                if (choiceTempColor > 5) {
+                    throw runtime_error("Erreur : choix doit etre inferieur ou egale a 5");
+                }
+                if (cin.fail()) {
+                    throw runtime_error("Erreur : saisie non numerique");
+                }
+            } catch (runtime_error& e) {
+                std::cout << e.what() << std::endl;
+                //return 1;
+                }
+
+            if (choiceTempColor == 1){
                 tempColor = "rouge";
             }
-            else if (tempColor == "2"){
+            else if (choiceTempColor == 2){
                 tempColor = "bleu";
             }
-            else if (tempColor == "3"){
+            else if (choiceTempColor == 3){
                 tempColor = "vert";
             }
-            else if (tempColor == "4"){
+            else if (choiceTempColor == 4){
                 tempColor = "jaune";
             }
-            else if (tempColor == "5"){
+            else if (choiceTempColor == 5){
                 tempColor = "violet";
             }
         }

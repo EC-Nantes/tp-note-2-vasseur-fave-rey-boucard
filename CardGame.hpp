@@ -26,7 +26,7 @@ protected:
     vector<string> Tuiles;
 
 public:
-    Cardgame();
+    Cardgame(Plateau*);
 
     bool isEmpty();
     void Melange(string);

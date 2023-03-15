@@ -82,7 +82,7 @@ int Plateau::updatePlateau(std::string deplacement){
     return ret;
 }
 
-int Plateau::whichTortue(std::string color){
+int Plateau::whichTortue(std::string color){ //TODO check for error
     int index;
     auto it = find(begin(this->ordre), end(this->ordre), color);
     std::cout << "Color :" << color << std::endl;
@@ -90,7 +90,9 @@ int Plateau::whichTortue(std::string color){
     std::cout << "end :" << end(this->ordre) << std::endl;
     std::cout << "it :" << it << std::endl;
     if (it == end(this->ordre)){
-        std::cout << "Error : Couleur choisi fausse\n";
+        cout << "Couleur : " << color << endl;
+
+        std::cout << "Error : Couleur choisie fausse\n";
         index = -1;
     }else{
         index = std::distance(this->ordre, it);
