@@ -59,6 +59,8 @@ class Joueur
         * @param: none
         */
         int choisirCarte();
+
+        //Ajouter une fonction pour créer le deck de 5 cartes : appel de la fonction piocher 5 fois
 };
 
 
