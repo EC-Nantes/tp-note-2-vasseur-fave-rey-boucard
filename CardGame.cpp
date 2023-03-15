@@ -57,6 +57,15 @@ Cardgame::Cardgame(Plateau *p){
         this->Pioche.push_back(card);
     }
     this->Melange("Pioche");
+
+    /*Création des tuiles*/
+    this->Tuiles.push_back(Couleur_map[rouge]);
+    this->Tuiles.push_back(Couleur_map[bleu]);
+    this->Tuiles.push_back(Couleur_map[vert]);
+    this->Tuiles.push_back(Couleur_map[jaune]);
+    this->Tuiles.push_back(Couleur_map[violet]);
+
+    this->Melange("Tuiles");
 }
 
 /**
@@ -106,6 +115,21 @@ Carte Cardgame::getTopCarte(){
     this->Pioche.pop_back();
 
     return topCard;
+}
+
+/**
+ * @brief get tuile for player
+ * 
+ * @return string 
+ */
+string Cardgame::getTuile(){
+    /*Récupère le dernier élement des tuiles*/
+    string topTuile = this->Tuiles.back();
+    
+    /*Supprime le dernier élément des tuiles*/
+    this->Tuiles.pop_back();
+
+    return topTuile;
 }
 
 /**
