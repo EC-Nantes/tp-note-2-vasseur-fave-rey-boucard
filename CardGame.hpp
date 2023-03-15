@@ -26,13 +26,51 @@ protected:
     vector<string> Tuiles;
 
 public:
+    /**
+     * @brief Construct a new Cardgame:: Cardgame object
+     */
     Cardgame(Plateau*);
 
+    /**
+     * @brief check if the pick is empty
+     * 
+     * @return true if is empty
+     * @return false if not
+     */
     bool isEmpty();
+
+    /**
+     * @brief shuffle the pick (pioche) or the tiles (tuiles)
+     * 
+     * @param vec ("Pioche" pour mélanger la pioche et "Tuiles" pour les tuiles)
+     */
     void Melange(string);
+    
+    /**
+     * @brief recup top carte to pick
+     * 
+     * @return Top Carte
+     */
     Carte getTopCarte();
+    
+    /**
+     * @brief get tuile for player
+     * 
+     * @return string 
+     */
     string getTuile();
+    
+    /**
+     * @brief add card to defausse
+     * 
+     * @param card to add 
+     */
     void addCardDefausse(Carte);
+    
+    /**
+     * @brief when pick is empty, move content of defausse to pick
+     * 
+     */
     void defausseToPioche();
 };
 
