@@ -8,11 +8,6 @@ Carte::Carte(string couleur, string valeur, Plateau *pointeurPlateau){
     this->valeur = valeur;
 }
 
-Carte::Carte(const Carte& carte){
-    this->couleur = carte.couleur;
-    this->valeur = carte.valeur;
-}
-
 /*----------------------------------------------------------*/
 
 /* Methods */

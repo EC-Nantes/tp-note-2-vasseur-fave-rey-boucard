@@ -55,11 +55,6 @@ class Carte
          * @param pointeurPlateau 
          */
         Carte(string couleur, string valeur, Plateau *pointeurPlateau);
-        /**
-         * @brief Construct a new Carte object
-         * @param Carte
-         */
-        Carte(const Carte&);
 
     //METHODS
 

@@ -96,16 +96,13 @@ int Plateau::updatePlateau(std::string deplacement){
     std::getline(parse_chaine, couleur, ',');
     parse_chaine >> move;
     
-    std::cout << "-" << couleur << "-" << std::endl;
     pos = this->whichTortue(couleur);
     if (pos == -1){
         return -1;
     }
-    std::cout << pos << std::endl;
     solo = this->tortues[pos]->getSeul();
     
     moveSelected = this->moveSelect(move);
-    std::cout << moveSelected << std::endl;
     if (moveSelected == 0){
         return -1;
     }
@@ -127,25 +124,17 @@ int Plateau::whichTortue(std::string color){ //TODO check for error
     int index;
     int i = 0;
     
-    //std::cout << "size:" << this->ordre->size() << std::endl;
-    //auto it = find(begin(this->ordre), end(this->ordre), color);
-    this->getOrdre();
-    //std::cout << "Couleur:" << this->ordre[i] << std::endl;
     for (i = 0; i < 5; i++) {
-        std::cout << "-" << color << "-" << std::endl;
-        std::cout << "-" << this->ordre[i] << "-" << std::endl;
         if (strcmp(this->ordre[i].c_str(), color.c_str())==0) {
             break;
         }
     }
-    std::cout << "position:" << i << std::endl;
     if (i == 5){
         std::cout << "Error : Couleur choisie fausse\n";
         index = -1;
     }else{
         index = i;
     }
-    std::cout << "index :" << index << std::endl;
     return index;
 }
 
