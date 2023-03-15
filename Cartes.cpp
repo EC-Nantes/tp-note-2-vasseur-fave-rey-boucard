@@ -90,6 +90,7 @@ string Carte::Effet(){
     string stringToSend = "";
 
     stringToSend = tempColor + "," + this->valeur;
+    std::cout << "string:-" << stringToSend << "-" << std::endl;
     this->pointeurPlateau->updatePlateau(stringToSend);
 
     cout << "La carte jouee est la suivante : " << stringToSend << endl;

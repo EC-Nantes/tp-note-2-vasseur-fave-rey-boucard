@@ -31,6 +31,12 @@ int main()
    
     Plateau* p = new Plateau();
     p->getOrdre();
+    p->whichTortue("vert");
+    std::cout << "fin which" << std::endl;
+    std::string entre;
+    std:cin >> entre;
+    p->updatePlateau(entre);
+    std::cout << "fin update" << std::endl;
     Cardgame c = Cardgame(p);
     Joueur joueur1(&c);
 

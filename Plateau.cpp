@@ -130,11 +130,11 @@ int Plateau::whichTortue(std::string color){ //TODO check for error
     //std::cout << "size:" << this->ordre->size() << std::endl;
     //auto it = find(begin(this->ordre), end(this->ordre), color);
     this->getOrdre();
-    std::cout << "Couleur:" << this->ordre[i] << std::endl;
+    //std::cout << "Couleur:" << this->ordre[i] << std::endl;
     for (i = 0; i < 5; i++) {
         std::cout << "-" << color << "-" << std::endl;
-        //std::cout << "-" << this->ordre[i] << "-" << std::endl;
-        if (strcmp(this->ordre[i].c_str(), color.c_str())) {
+        std::cout << "-" << this->ordre[i] << "-" << std::endl;
+        if (strcmp(this->ordre[i].c_str(), color.c_str())==0) {
             break;
         }
     }
