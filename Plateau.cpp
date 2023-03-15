@@ -48,7 +48,8 @@ std::string Plateau::getCaseCouleur(int _case, int _etage) const{
     return this->plateau[_case][_etage]->getCouleur();
 }
 
-void Plateau::updatePlateau(std::string deplacement){
+int Plateau::updatePlateau(std::string deplacement){
+    int ret = 0;
     //Exemple string : "Couleur,move"
     //Etages de 0 à 4
     //Seul vaut 1 quand tortue seul sur la case
@@ -63,25 +64,38 @@ void Plateau::updatePlateau(std::string deplacement){
     parse_chaine >> move;
 
     pos = this->whichTortue(couleur);
-    solo = this->tortues[pos]->getSeul();
-    moveSelected = this->moveSelect(move);
-    if (solo == true){
-        this->moveAlone(pos, moveSelected);
-    }else{
-        this->moveOthers(pos, moveSelected);
+    if (pos == -1){
+        return -1;
     }
 
+    solo = this->tortues[pos]->getSeul();
+
+    moveSelected = this->moveSelect(move);
+    if (moveSelected == 0){
+        return -1;
+    }
+    if (solo == true){
+        ret = this->moveAlone(pos, moveSelected);
+    }else{
+        ret = this->moveOthers(pos, moveSelected);
+    }
+    return ret;
 }
 
 int Plateau::whichTortue(std::string color){
     int index;
     auto it = find(begin(this->ordre), end(this->ordre), color);
+    std::cout << "Color :" << color << std::endl;
+    std::cout << "begin :" << begin(this->ordre) << std::endl;
+    std::cout << "end :" << end(this->ordre) << std::endl;
+    std::cout << "it :" << it << std::endl;
     if (it == end(this->ordre)){
         std::cout << "Error : Couleur choisi fausse\n";
         index = -1;
     }else{
         index = std::distance(this->ordre, it);
     }
+    std::cout << "index :" << index << std::endl;
     return index;
 }
 
@@ -99,7 +113,16 @@ int Plateau::moveSelect(std::string move){
     return 0;
 }
 
-void Plateau::moveAlone(int pos, int move){
+int Plateau::moveAlone(int pos, int move){
+    if (pos<0 || pos >4){
+        std::cout << "Error : numéro de tortue erronné\n";
+        return -1;
+    }
+    if (move != -1 || move != 1 || move != 2){
+        std::cout << "Error : déplacement impossible\n";
+        return -1;
+    }
+    
     //Déplacer la tortue d'une case
 
     //Récupérer nombre tortues sur la case suivante
@@ -130,9 +153,19 @@ void Plateau::moveAlone(int pos, int move){
 
     //Changer l'étage de la tortue
     this->tortues[pos]->setEtage(tortues_case);
+    return 0;
 }
 
-void Plateau::moveOthers(int pos, int move){
+int Plateau::moveOthers(int pos, int move){
+    if (pos<0 || pos >4){
+        std::cout << "Error : numéro de tortue erronné\n";
+        return -1;
+    }
+    if (move != -1 || move != 1 || move != 2){
+        std::cout << "Error : déplacement impossible\n";
+        return -1;
+    }
+    int ret = 0;
     int new_pos;
     int etage = this->tortues[pos]->getEtage();
     int num_case = this->tortues[pos]->getCase();
@@ -140,12 +173,22 @@ void Plateau::moveOthers(int pos, int move){
     if (etage < nb_tortue-1){
         while (etage < nb_tortue){
             new_pos = this->whichTortue(this->plateau[num_case-1][etage]->getCouleur());
-            this->moveAlone(new_pos, move);
+            if (new_pos == -1){
+                return ret;
+            }
+            ret = this->moveAlone(new_pos, move);
+            if (ret == -1){
+                return ret;
+            }
             etage++;
         }
     }else{
-        this->moveAlone(pos, move);
+        ret = this->moveAlone(pos, move);
+        if (ret == -1){
+            return ret;
+        }
     }
+    return ret;
 }
 
 std::string Plateau::checkLastPos(){
