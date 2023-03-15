@@ -38,14 +38,14 @@ public:
 
     void PlacementTortues();
     bool Fin();
-    void updatePlateau(std::string deplacement);
+    int updatePlateau(std::string deplacement);
     std::string checkLastPos();
 
     int getNbtortues(int _case) const;
     std::string getCaseCouleur(int _case, int _etage) const;
 
-    void moveAlone(int pos, int move);
-    void moveOthers(int pos, int move);
+    int moveAlone(int pos, int move);
+    int moveOthers(int pos, int move);
     int whichTortue(std::string color);
     int moveSelect(std::string move);
 	friend std::ostream& operator<< (std::ostream& os, const Plateau& plat);
