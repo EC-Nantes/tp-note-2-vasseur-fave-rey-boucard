@@ -32,7 +32,8 @@ void Plateau::PlacementTortues(){
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     std::shuffle (ordre_couleurs, ordre_couleurs+n, std::default_random_engine(seed));
     for (int i=0; i<5; i++){
-        this->ordre[i] = couleurs[ordre_couleurs[i]];
+        this->ordre.push_back(couleurs[ordre_couleurs[i]]);
+        std::cout << "Couleur:" << this->ordre[i] << std::endl;
         this->tortues[i] = new Tortue(this->ordre[i], 1, false, i);
         this->plateau[0][i] = this->tortues[i];
         std::cout << *this->tortues[i];
@@ -94,12 +95,11 @@ int Plateau::updatePlateau(std::string deplacement){
 
     std::getline(parse_chaine, couleur, ',');
     parse_chaine >> move;
-
+    
     pos = this->whichTortue(couleur);
     if (pos == -1){
         return -1;
     }
-
     solo = this->tortues[pos]->getSeul();
     
     moveSelected = this->moveSelect(move);
@@ -122,14 +122,19 @@ int Plateau::updatePlateau(std::string deplacement){
  */
 int Plateau::whichTortue(std::string color){ //TODO check for error
     int index;
-    auto it = find(begin(this->ordre), end(this->ordre), color);
-    if (it == end(this->ordre)){
+    int i = 0;
+    
+    for (i = 0; i < 5; i++) {
+        if (strcmp(this->ordre[i].c_str(), color.c_str())==0) {
+            break;
+        }
+    }
+    if (i == 5){
         std::cout << "Error : Couleur choisie fausse\n";
         index = -1;
     }else{
-        index = std::distance(this->ordre, it);
+        index = i;
     }
-    std::cout << "index :" << index << std::endl;
     return index;
 }
 
@@ -284,4 +289,11 @@ std::ostream& operator<<(std::ostream& os, const Plateau& plat){
         os << std::endl;
     }
 	return os;
+}
+
+
+void Plateau::getOrdre(){
+    for (int i=0; i<5; i++){
+        std::cout << i << " : " << this->ordre[i] << std::endl;
+    }
 }

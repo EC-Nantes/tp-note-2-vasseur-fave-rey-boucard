@@ -8,11 +8,6 @@ Carte::Carte(string couleur, string valeur, Plateau *pointeurPlateau){
     this->valeur = valeur;
 }
 
-Carte::Carte(const Carte& carte){
-    this->couleur = carte.couleur;
-    this->valeur = carte.valeur;
-}
-
 /*----------------------------------------------------------*/
 
 /* Methods */
@@ -90,6 +85,7 @@ string Carte::Effet(){
     string stringToSend = "";
 
     stringToSend = tempColor + "," + this->valeur;
+    std::cout << "string:-" << stringToSend << "-" << std::endl;
     this->pointeurPlateau->updatePlateau(stringToSend);
 
     cout << "La carte jouee est la suivante : " << stringToSend << endl;

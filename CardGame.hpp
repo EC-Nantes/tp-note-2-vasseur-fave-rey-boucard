@@ -2,12 +2,14 @@
  * CardGame.hpp
  *
  *  Created on: 10 Mar. 2023
- *      Author: VASSEUR Francois
+ *  Final version : 15 Mars 2023
+ *      Author: REY Maxime, BOUCARD Romain, FAVE Jonathan, VASSEUR Francois
  */
 
-#ifndef CARDGAME_H
-#define CARDGAME_H
+#ifndef CARDGAME_HPP_
+#define CARDGAME_HPP_
 
+/* Library */
 #include <iostream>
 #include <string.h>
 #include <vector>
@@ -15,10 +17,15 @@
 #include <random>
 #include <map>
 
+/* Include */
 #include "Cartes.hpp"
 
 using namespace std;
 
+/**
+ * @brief Use of the cards  
+ * @class Cardgame 
+ */
 class Cardgame {
 protected:
     vector<Carte> Pioche;
@@ -74,4 +81,4 @@ public:
     void defausseToPioche();
 };
 
-#endif /*CARDGAME_H*/
+#endif /* CARDGAME_HPP_ */

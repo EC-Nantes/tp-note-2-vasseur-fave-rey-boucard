@@ -17,21 +17,34 @@ class Joueur
         Cardgame *deck;
         string tuile_cachee;
         // User have 5 card on hand //TODO Check if it's possible to use a vector instead of an array
-        vector <Carte> main;
+        Cartes main[5];
                 
-
-
     public:
-        //constructor
+        /* CONSTRUCTORS */
+        /**
+         * @brief Construct a new Joueur object
+         * 
+         * @param deck 
+         */
         Joueur(Cardgame *deck);
 
-        //getter
+        /*GETTERS */
+        /**
+         * @brief Get the Tuile Cachee object
+         * @return string 
+         * @param none
+         */
         string getTuileCachee();
 
-        //setter
+        /* SETTERS */
+        /**
+         * @brief Set the Tuile Cachee object
+         * @return none
+         * @param tuile_cachee 
+         */
         void setTuileCachee(string tuile_cachee);
 
-        //method
+        /* METHODS */
 
         /*
         * @brief: draw a card from the deck
