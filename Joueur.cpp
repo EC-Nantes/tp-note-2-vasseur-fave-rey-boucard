@@ -8,8 +8,8 @@ Joueur::Joueur(Cardgame *deck)
     //draw card from the deck
     for (int i = 0; i < 5; i++)
     {
-        this->main[i] = this->deck->getTopCarte();
-    }   
+        this->main_joueur.push_back(this->deck->getTopCarte());
+    }
 
 }
 
@@ -38,7 +38,7 @@ void Joueur::jouer()
 
     carte_choisie = choisirCarte();
     cout << "Carte choisie : " << carte_choisie << endl;
-    this->main[carte_choisie].Effet();
+    this->main_joueur[carte_choisie].Effet();
     cout << "Carte jouée" << endl;
     defausser(carte_choisie);
     cout << "Carte défaussée" << endl;
@@ -53,21 +53,7 @@ void Joueur::piocher()
     //check if slot is empty
     //if not, ask raise an error
 
-    for (int i = 0; i < 5; i++)
-    {
-        //check if the card object is here
-
-        if (this->main[i].getValeur() == NULL)
-        {
-            this->main[i] = this->deck->getTopCarte();
-            break;
-        }
-        else if (i == 4)
-        {
-            cout << "Erreur : main pleine" << endl;
-        }
-    }
-    cout << "Piocher" << endl;
+    this->main_joueur.push_back(this->deck->getTopCarte());
 }
 
 void Joueur::defausser(int carte_a_defausser)
@@ -75,11 +61,10 @@ void Joueur::defausser(int carte_a_defausser)
     //add the card to the discard pile from "jeudecarte.hpp"
     //remove carte_a_defausser from the hand
 
-    this->deck->addCardDefausse(this->main[carte_a_defausser]);
+    this->deck->addCardDefausse(this->main_joueur[carte_a_defausser]);
 
     //remove the vector element from the hand
-    this->main[carte_a_defausser].setValeur(NULL);
-    cout << "Defausser" << endl;
+    this->main_joueur.erase(this->main_joueur.begin() + carte_a_defausser);
 }
 
 int Joueur::choisirCarte() 
@@ -92,7 +77,7 @@ int Joueur::choisirCarte()
 
     for (int i = 0; i < 5; i++)
     {
-       cout << "Carte " << i+1 << " : " << this->main[i].getValeur() << " " << this->main[i].getCouleur() << endl;
+       cout << "Carte " << i+1 << " : " << this->main_joueur[i].getValeur() << " " << this->main_joueur[i].getCouleur() << endl;
     }
     cout << "Choisir carte : 1, 2, 3, 4, 5" << endl;
     cin >> carte_choisie;

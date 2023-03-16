@@ -17,7 +17,7 @@ class Joueur
         Cardgame *deck;
         string tuile_cachee;
         // User have 5 card on hand //TODO Check if it's possible to use a vector instead of an array
-        Cartes main[5];
+        vector <Carte> main_joueur;
                 
     public:
         /* CONSTRUCTORS */
