@@ -16,13 +16,15 @@ https://cmake.org/install/
 
 Recompiler le projet : 
 
-cmake .
+cmake . 
+
 make all
 
 
 Lancer l'executable :
 
 cd src/
+
 ./tpn2_run
 
 Nous avons laissé un executable de la dernière version disponible.
