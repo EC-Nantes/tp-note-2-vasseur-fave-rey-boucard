@@ -1,8 +1,9 @@
 #include "Joueur.hpp"
 using namespace std;
 
-Joueur::Joueur(Cardgame *deck)
+Joueur::Joueur(Cardgame *deck, Plateau *pointeurPlateau)
 {
+    this->pointeurPlateau = pointeurPlateau;
     this->tuile_cachee = "A";
     this->deck = deck;
     //draw card from the deck
@@ -33,11 +34,26 @@ void Joueur::jouer()
     //do the action of the card
     //remove the card from the hand
     //draw a new card
-
+    int exit = 1;
+    int move_possible;
     int carte_choisie;
 
-    carte_choisie = choisirCarte();
-    cout << "Carte choisie : " << carte_choisie << endl;
+    while (exit == 1){
+        carte_choisie = choisirCarte();
+        cout << "Carte choisie : " << carte_choisie << endl;
+        if (strcmp(this->main_joueur[carte_choisie].getValeur().c_str(), "moins") == 0){
+            //Demander si on peut reculer une carte du plateau
+            move_possible = this->pointeurPlateau->stepbackIsPossible(this->main_joueur[carte_choisie].getCouleur());
+            if (move_possible){
+                exit = 0;
+            }else{
+                cout << "La carte choisie ne peut pas être jouée, veuillez jouer une autre carte" << endl;
+            }
+        }else{ //Autres cartes
+            exit = 0;
+        }
+    }
+    
     this->main_joueur[carte_choisie].Effet();
     cout << "Carte jouée" << endl;
     defausser(carte_choisie);

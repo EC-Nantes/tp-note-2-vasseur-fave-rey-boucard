@@ -33,7 +33,6 @@ void Plateau::PlacementTortues(){
     std::shuffle (ordre_couleurs, ordre_couleurs+n, std::default_random_engine(seed));
     for (int i=0; i<5; i++){
         this->ordre.push_back(couleurs[ordre_couleurs[i]]);
-        std::cout << "Couleur:" << this->ordre[i] << std::endl;
         this->tortues[i] = new Tortue(this->ordre[i], 1, false, i);
         this->plateau[0][i] = this->tortues[i];
         std::cout << *this->tortues[i];
@@ -296,4 +295,44 @@ void Plateau::getOrdre(){
     for (int i=0; i<5; i++){
         std::cout << i << " : " << this->ordre[i] << std::endl;
     }
+}
+
+int Plateau::stepbackIsPossible(std::string color){
+    int pos;
+    int _case;
+    int possible = 0;
+
+    if (strcmp(color.c_str(), "neutre") == 0){
+        for (int i=0; i<5; i++){
+            _case = this->tortues[i]->getCase();
+            if (_case != 1){
+                possible = 1;
+                break;
+            }
+        }
+    }else {
+        pos = whichTortue(color);
+        _case = this->tortues[pos]->getCase();
+        if (_case == 1){
+            possible = 0;
+        }else {
+            possible = 1;
+        }
+    }
+    return possible;
+}
+
+std::string Plateau::whichCanStepback(){
+    std::string ret = "";
+    int _case;
+    int nb_stepback = 0;
+    for (int i=0; i<5; i++){
+        _case = this->tortues[i]->getCase();
+        if (_case != 1){
+            ret = ret + this->tortues[i]->getCouleur() + ",";
+            nb_stepback++;
+        }
+    }
+    ret = to_string(nb_stepback) + "," + ret;
+    return ret;
 }

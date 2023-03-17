@@ -18,6 +18,7 @@ class Joueur
         string tuile_cachee;
         // User have 5 card on hand //TODO Check if it's possible to use a vector instead of an array
         vector <Carte> main_joueur;
+        Plateau *pointeurPlateau;   /* Include pointer to plateau */
                 
     public:
         /* CONSTRUCTORS */
@@ -26,7 +27,7 @@ class Joueur
          * 
          * @param deck 
          */
-        Joueur(Cardgame *deck);
+        Joueur(Cardgame *deck, Plateau *pointeurPlateau);
 
         /*GETTERS */
         /**

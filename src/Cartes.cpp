@@ -46,37 +46,57 @@ string Carte::Effet(){
         }
 
         else {
-            cout << "Selectionnez la couleur de la tortue de votre choix, 1: rouge, 2: bleu, 3: vert, 4: jaune, 5: violet" << endl;
-            int choiceTempColor;
-            cin >> choiceTempColor;     
+            if (this->valeur == "moins"){
+                std::string choiceTortues;
+                choiceTortues = this->pointeurPlateau->whichCanStepback();
+                std::vector<std::string> output;
+                std::stringstream ss(choiceTortues);
+                std::string token;
+                while (std::getline(ss, token, ',')) {
+                    output.push_back(token);
+                }
+                cout << "Selectionnez la couleur de la tortue de votre choix";
+                for (int i=0; i<std::stoi(output[0]); i++){
+                    cout << ", " << i+1 << ": " << output[i+1];
+                }
+                std::cout << std::endl;
+                int choiceColor;
+                cin >> choiceColor;
+                tempColor = output[choiceColor];
 
-            //exception si le nombre de tortue est supérieur à 5
-            try {
-                if (choiceTempColor > 5) {
-                    throw runtime_error("Erreur : choix doit etre inferieur ou egale a 5");
-                }
-                if (cin.fail()) {
-                    throw runtime_error("Erreur : saisie non numerique");
-                }
-            } catch (runtime_error& e) {
-                std::cout << e.what() << std::endl;
-                //return 1;
-                }
+            }else{
+                cout << "Selectionnez la couleur de la tortue de votre choix, 1: rouge, 2: bleu, 3: vert, 4: jaune, 5: violet" << endl;
+                int choiceTempColor;
+                cin >> choiceTempColor;     
 
-            if (choiceTempColor == 1){
-                tempColor = "rouge";
-            }
-            else if (choiceTempColor == 2){
-                tempColor = "bleu";
-            }
-            else if (choiceTempColor == 3){
-                tempColor = "vert";
-            }
-            else if (choiceTempColor == 4){
-                tempColor = "jaune";
-            }
-            else if (choiceTempColor == 5){
-                tempColor = "violet";
+                //exception si le nombre de tortue est supérieur à 5
+                try {
+                    if (choiceTempColor > 5) {
+                        throw runtime_error("Erreur : choix doit etre inferieur ou egale a 5");
+                    }
+                    if (cin.fail()) {
+                        throw runtime_error("Erreur : saisie non numerique");
+                    }
+                } catch (runtime_error& e) {
+                    std::cout << e.what() << std::endl;
+                    //return 1;
+                    }
+
+                if (choiceTempColor == 1){
+                    tempColor = "rouge";
+                }
+                else if (choiceTempColor == 2){
+                    tempColor = "bleu";
+                }
+                else if (choiceTempColor == 3){
+                    tempColor = "vert";
+                }
+                else if (choiceTempColor == 4){
+                    tempColor = "jaune";
+                }
+                else if (choiceTempColor == 5){
+                    tempColor = "violet";
+                }
             }
         }
     }  
@@ -85,7 +105,6 @@ string Carte::Effet(){
     string stringToSend = "";
 
     stringToSend = tempColor + "," + this->valeur;
-    std::cout << "string:-" << stringToSend << "-" << std::endl;
     this->pointeurPlateau->updatePlateau(stringToSend);
 
     cout << "La carte jouee est la suivante : " << stringToSend << endl;

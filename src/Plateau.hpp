@@ -122,6 +122,9 @@ public:
 	
     void getOrdre(void);
 
+    int stepbackIsPossible(std::string color);
+    std::string whichCanStepback();
+
     /**
      * @brief to print plateau
      * 
