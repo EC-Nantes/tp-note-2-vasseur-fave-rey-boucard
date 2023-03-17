@@ -1,3 +1,13 @@
 *.exe
 *.o
 *.json
+CMakeCache.txt
+cmake_install.cmake
+CMakeFiles/
+src/CMakeFiles/
+src/CMakeFiles/tpn2_run
+src/cmake_install.cmake
+tst/CMakeFiles/
+tst/Makeifle
+tst/cmake_install.cmake
+lib/*
