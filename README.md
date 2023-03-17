@@ -1,50 +1,55 @@
-Vasseur François
-Favé Jonathan
-Rey Maxime
-Boucard Romain
+# Projet jeu de plateau
+
+## Concepteur 
+ - Vasseur François
+ - Favé Jonathan
+ - Rey Maxime
+ - Boucard Romain
+
+### Règles du jeu claires
+
+https://www.jeuxdenim.be/download/CourseDesTortues_regle.pdf
+
+### Lien github
+https://github.com/EC-Nantes/tp-note-2-vasseur-fave-rey-boucard.git
 
 
-Règles du jeu claires : https://www.jeuxdenim.be/download/CourseDesTortues_regle.pdf
-
-Lien github : https://github.com/EC-Nantes/tp-note-2-vasseur-fave-rey-boucard.git
-
-
-ESSENTIEL !
+### Pour les test (Googletest)
+**ESSENTIEL**
 Pour avoir la lib googletest :
 
-git submodule update 
+- git submodule update 
 
 
-Pour pouvoir (re)build le projet avec les tests CMake est necessaire : 
+## COMPILATION 
+Pour pouvoir (re)build le projet avec les tests CMake est necessaire : https://cmake.org/install/
 
-https://cmake.org/install/
+### LINUX 
 
-LINUX :
+**Recompiler le projet :** 
 
-Recompiler le projet : 
+- cmake . 
 
-cmake . 
-
-make all
+- make all
 
 
-Lancer l'executable :
+**Lancer l'executable :**
 
-cd src/
+- cd src/
 
-./tpn2_run
+- ./tpn2_run
 
 Nous avons laissé un executable de la dernière version disponible.
 
 
-WINDOWS :
+### WINDOWS
 
-Recompiler le projet :
+**Recompiler le projet :**
 
-cmake -G"MinGW Makefiles"
+- cmake -G"MinGW Makefiles"
 
-Lancer l'executable :
+**Lancer l'executable :**
 
-cd src/
+- cd src/
 
-./tpn2_run
+- ./tpn2_run
