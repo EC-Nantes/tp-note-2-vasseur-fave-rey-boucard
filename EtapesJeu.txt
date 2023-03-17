@@ -1,0 +1,17 @@
+Placer les 5 tortues sur la première case
+Mélanger cartes de progression (Pioche)
+Distribuer 5 cartes à chaque joueur
+Distribuer les tuiles à chaque joueur
+
+****Début de la partie
+**Début tour d'un joueur
+Joueur choisie une carte parmi son jeu
+Exécution de l'action de la carte
+Joueur pioche une nouvelle carte pour en avoir 5
+Vérifier si jeu terminé
+Vérifier si pioche vide
+
+****Fin de la partie
+Propriétaire de la tortue gagnante
+Si plusieurs tortues, propriétaire de la tortue la plus en dessous
+SI aucun propriétaire alors la tortue la plus proche de l'arrivée

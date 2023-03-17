@@ -4,7 +4,8 @@ using namespace std;
 Joueur::Joueur(Cardgame *deck, Plateau *pointeurPlateau)
 {
     this->pointeurPlateau = pointeurPlateau;
-    this->tuile_cachee = "A";
+    this->tuile_cachee = deck->getTuile();
+    std::cout << "Ta couleur de tortue est " << this->tuile_cachee << std::endl;
     this->deck = deck;
     //draw card from the deck
     for (int i = 0; i < 5; i++)
@@ -40,7 +41,7 @@ void Joueur::jouer()
 
     while (exit == 1){
         carte_choisie = choisirCarte();
-        cout << "Carte choisie : " << carte_choisie << endl;
+        //cout << "Carte choisie : " << carte_choisie << endl;
         if (strcmp(this->main_joueur[carte_choisie].getValeur().c_str(), "moins") == 0){
             //Demander si on peut reculer une carte du plateau
             move_possible = this->pointeurPlateau->stepbackIsPossible(this->main_joueur[carte_choisie].getCouleur());
@@ -55,12 +56,12 @@ void Joueur::jouer()
     }
     
     this->main_joueur[carte_choisie].Effet();
-    cout << "Carte jouée" << endl;
+    cout << "Carte jouee" << endl;
     defausser(carte_choisie);
-    cout << "Carte défaussée" << endl;
+    cout << "Carte defaussee" << endl;
     piocher();
 
-    cout << "Jouer" << endl;
+    //cout << "Jouer" << endl;
 }
 
 void Joueur::piocher()
@@ -95,7 +96,7 @@ int Joueur::choisirCarte()
     {
        cout << "Carte " << i+1 << " : " << this->main_joueur[i].getValeur() << " " << this->main_joueur[i].getCouleur() << endl;
     }
-    cout << "Choisir carte : 1, 2, 3, 4, 5" << endl;
+    cout << "Choisir une carte : 1, 2, 3, 4, 5" << endl;
     cin >> carte_choisie;
     return carte_choisie-1;
     

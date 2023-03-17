@@ -124,6 +124,7 @@ public:
 
     int stepbackIsPossible(std::string color);
     std::string whichCanStepback();
+    std::string ordreFin();
 
     /**
      * @brief to print plateau

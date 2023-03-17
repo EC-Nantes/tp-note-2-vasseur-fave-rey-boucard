@@ -35,7 +35,6 @@ void Plateau::PlacementTortues(){
         this->ordre.push_back(couleurs[ordre_couleurs[i]]);
         this->tortues[i] = new Tortue(this->ordre[i], 1, false, i);
         this->plateau[0][i] = this->tortues[i];
-        std::cout << *this->tortues[i];
     }
     this->Nb_tortues[0] = 5;
 }
@@ -335,4 +334,18 @@ std::string Plateau::whichCanStepback(){
     }
     ret = to_string(nb_stepback) + "," + ret;
     return ret;
+}
+
+std::string Plateau::ordreFin(){
+    std::string ordre = "";
+    int nb;
+    for (int i=9; i>=0; i--){
+        if (this->Nb_tortues[i] != 0){
+            nb = this->Nb_tortues[i];
+            for (nb; nb>0; nb--){
+                ordre = ordre + this->plateau[i][nb-1]->getCouleur() + ",";
+            }
+        }
+    }
+    return ordre;
 }
