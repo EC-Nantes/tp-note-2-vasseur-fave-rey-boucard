@@ -37,6 +37,13 @@ class Joueur
          */
         string getTuileCachee();
 
+        /**
+         * @brief Get the Main Joueur object
+         * @return vector<Carte> 
+         * @param none
+         */
+        vector<Carte> getMainJoueur();
+
         /* SETTERS */
         /**
          * @brief Set the Tuile Cachee object

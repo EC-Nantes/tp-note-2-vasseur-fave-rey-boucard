@@ -20,6 +20,11 @@ string Joueur::getTuileCachee()
     return this->tuile_cachee;
 }
 
+vector<Carte> Joueur::getMainJoueur()
+{
+    return this->main_joueur;
+}
+
 //setter
 void Joueur::setTuileCachee(string tuile_cachee)
 {
