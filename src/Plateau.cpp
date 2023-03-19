@@ -289,13 +289,22 @@ std::ostream& operator<<(std::ostream& os, const Plateau& plat){
 	return os;
 }
 
-
+/**
+ * @brief Display the order of the colors
+ * 
+ */
 void Plateau::getOrdre(){
     for (int i=0; i<5; i++){
         std::cout << i << " : " << this->ordre[i] << std::endl;
     }
 }
 
+/**
+ * @brief Check if one tortle can step back
+ * 
+ * @param color 
+ * @return int 
+ */
 int Plateau::stepbackIsPossible(std::string color){
     int pos;
     int _case;
@@ -321,6 +330,11 @@ int Plateau::stepbackIsPossible(std::string color){
     return possible;
 }
 
+/**
+ * @brief Ask which tortle can stepback
+ * 
+ * @return string 
+ */
 std::string Plateau::whichCanStepback(){
     std::string ret = "";
     int _case;
@@ -336,6 +350,11 @@ std::string Plateau::whichCanStepback(){
     return ret;
 }
 
+/**
+ * @brief Get the order of tortle at the end of the game
+ * 
+ * @return string 
+ */
 std::string Plateau::ordreFin(){
     std::string ordre = "";
     int nb;

@@ -120,10 +120,32 @@ public:
      */
     int moveSelect(std::string move);
 	
+    /**
+     * @brief Display the order of the colors
+     * 
+     */
     void getOrdre(void);
 
+    /**
+     * @brief Check if one tortle can step back
+     * 
+     * @param color 
+     * @return int 
+     */
     int stepbackIsPossible(std::string color);
+
+    /**
+     * @brief Ask which tortle can stepback
+     * 
+     * @return string 
+     */
     std::string whichCanStepback();
+
+    /**
+     * @brief Get the order of tortle at the end of the game
+     * 
+     * @return string 
+     */
     std::string ordreFin();
 
     /**
