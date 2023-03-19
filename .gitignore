@@ -11,3 +11,4 @@ tst/CMakeFiles/
 tst/Makeifle
 tst/cmake_install.cmake
 lib/*
+Makefile
