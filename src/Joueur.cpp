@@ -61,9 +61,7 @@ void Joueur::jouer()
     }
     
     this->main_joueur[carte_choisie].Effet();
-    cout << "Carte jouee" << endl;
     defausser(carte_choisie);
-    cout << "Carte defaussee" << endl;
     piocher();
 
     //cout << "Jouer" << endl;

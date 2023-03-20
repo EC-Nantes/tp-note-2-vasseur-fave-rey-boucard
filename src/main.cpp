@@ -60,9 +60,7 @@ int main(int argc, char const *argv[]) {
             std::cout << "Partie terminee..." << std::endl;
             break;
         }
-        exit = "exit";
     }
-    std::cout << "Ordre des tortues :" << std::endl;
     std::string ordre_tortues = "";
     ordre_tortues = p.ordreFin();
 
@@ -76,7 +74,6 @@ int main(int argc, char const *argv[]) {
     exit = "";
     int i=0;
     while (exit != "exit"){
-        std::cout << output[i] << std::endl;
         if (strcmp(output[i].c_str(), joueur1.getTuileCachee().c_str()) == 0){
             std::cout << "Joueur 1 a gagne !" << std::endl;
             break;

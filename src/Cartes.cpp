@@ -42,7 +42,25 @@ string Carte::Effet(){
                     cout << i+1 << " : " << couleurTab[i] << endl;
                 }
                 cin >> tempColor;
+                if (tempColor == "1"){
+                    tempColor = couleurTab[0];
+                }
+                else if (tempColor == "2"){
+                    tempColor = couleurTab[1];
+                }
+                else if (tempColor == "3"){
+                    tempColor = couleurTab[2];
+                }
+                else if (tempColor == "4"){
+                    tempColor = couleurTab[3];
+                }
+                else if (tempColor == "5"){
+                    tempColor = couleurTab[4];
+                }
             }
+
+
+
         }
 
         else {
@@ -107,7 +125,7 @@ string Carte::Effet(){
     stringToSend = tempColor + "," + this->valeur;
     this->pointeurPlateau->updatePlateau(stringToSend);
 
-    cout << "La carte jouee est la suivante : " << stringToSend << endl;
+    std::cout << "La carte jouee est la suivante : " << stringToSend << endl;
     return "0";
 }
 
