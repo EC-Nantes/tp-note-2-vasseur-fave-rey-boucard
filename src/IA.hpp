@@ -16,6 +16,13 @@ class IA : public Joueur
 
 
     public:
+        /* CONSTRUCTORS */
+        /**
+         * @brief Construct a new Joueur object
+         * 
+         * @param deck 
+         */
+        IA(Cardgame *deck, Plateau *pointeurPlateau) : Joueur (deck, pointeurPlateau);
         /**
          * @brief Methods to play
          * @param none

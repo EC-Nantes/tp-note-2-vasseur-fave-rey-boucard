@@ -1,5 +1,8 @@
 #include "IA.hpp"
 
+IA(Cardgame *deck, Plateau *pointeurPlateau) : Joueur (Cardgame *deck, Plateau *pointeurPlateau){
+    
+}
 void IA::jouer(){
     int carte_choisie;
 

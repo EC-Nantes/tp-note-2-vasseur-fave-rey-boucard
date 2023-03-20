@@ -3,6 +3,7 @@
 #include "Joueur.hpp"
 #include "Plateau.hpp"
 #include "CardGame.hpp"
+#include "IA.hpp"
 
 int main(int argc, char const *argv[]) {
     
@@ -27,6 +28,7 @@ int main(int argc, char const *argv[]) {
     Joueur joueur2(&c, &p); //Création du joueur 2 + pioche de ses 5 cartes de départ + pioche tuile
     std::cout << "   Joueur 3" << std::endl;
     Joueur joueur3(&c, &p); //Création du joueur 3 + pioche de ses 5 cartes de départ + pioche tuile
+    IA ia1(&c, &p);
 
     std::string exit = "0";
     std::string pret = "0";
