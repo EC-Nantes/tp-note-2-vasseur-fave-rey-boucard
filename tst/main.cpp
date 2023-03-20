@@ -4,6 +4,8 @@
 #include "../src/Plateau.hpp"
 #include "../src/Tortue.hpp"
 
+#include "../src/IA.hpp"
+
 Plateau *pointeurPlateau = new Plateau();
 Cardgame *deck = new Cardgame(pointeurPlateau);
 Joueur *joueur = new Joueur(deck, pointeurPlateau);
@@ -46,4 +48,7 @@ TEST(Plateau, stepbackIsPossible){
     EXPECT_EQ(pointeurPlateau->stepbackIsPossible("bleu"), 0);
 }
 
-
+TEST(IA, choisirCarte){
+    IA *ia = new IA(deck, pointeurPlateau);
+    EXPECT_LT(ia->choisirCarte(), 5);
+}
