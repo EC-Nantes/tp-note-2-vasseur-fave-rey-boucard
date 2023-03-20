@@ -28,6 +28,7 @@ int main(int argc, char const *argv[]) {
     Joueur joueur2(&c, &p); //Création du joueur 2 + pioche de ses 5 cartes de départ + pioche tuile
     std::cout << "   Joueur 3" << std::endl;
     Joueur joueur3(&c, &p); //Création du joueur 3 + pioche de ses 5 cartes de départ + pioche tuile
+    std:cout << "    IA 1" << std::endl;
     IA ia1(&c, &p);
 
     std::string exit = "0";
@@ -62,6 +63,13 @@ int main(int argc, char const *argv[]) {
             std::cout << "Partie terminee..." << std::endl;
             break;
         }
+        ia1.jouer();
+        //screen clear
+        std::cout << p;
+        if (p.Fin()){
+            std::cout << "Partie terminee..." << std::endl;
+            break;
+        }        
     }
     std::string ordre_tortues = "";
     ordre_tortues = p.ordreFin();
@@ -86,6 +94,10 @@ int main(int argc, char const *argv[]) {
         }
         if (strcmp(output[i].c_str(), joueur3.getTuileCachee().c_str()) == 0){
             std::cout << "Joueur 3 a gagne !" << std::endl;
+            break;
+        }
+        if (strcmp(output[i].c_str(), ia1.getTuileCachee().c_str()) == 0){
+            std::cout << "IA 1 a gagne !" << std::endl;
             break;
         }
         i++;
