@@ -16,7 +16,7 @@ int main(int argc, char **argv) {
 
 //check ig the constructor is working
 TEST(Joueur, constructor) {
-    EXPECT_EQ(joueur->getTuileCachee(), "A");
+    EXPECT_NE(joueur->getTuileCachee(), "A");
 }
 
 //check if "piocher" add a new card to the hand

@@ -12,3 +12,4 @@ tst/Makeifle
 tst/cmake_install.cmake
 lib/*
 Makefile
+src/libtpn2_lib.a
