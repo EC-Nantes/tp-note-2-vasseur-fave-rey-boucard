@@ -22,7 +22,7 @@ class IA : public Joueur
          * 
          * @param deck 
          */
-        IA(Cardgame *deck, Plateau *pointeurPlateau) : Joueur (deck, pointeurPlateau);
+        IA(Cardgame *deck, Plateau *pointeurPlateau) : Joueur (deck, pointeurPlateau){};
         /**
          * @brief Methods to play
          * @param none
